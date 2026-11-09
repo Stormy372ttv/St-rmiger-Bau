@@ -1,2 +1,2 @@
-// Nach Einrichtung des HTTPS-Tunnels durch dessen öffentliche Adresse ersetzen.
-window.TICKET_API_URL = '';
+// Der Quick Tunnel ist vorübergehend; nach einem Neustart kann sich die Adresse ändern.
+window.TICKET_API_URL = 'https://biodiversity-rank-airplane-watch.trycloudflare.com';
