@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="no-referrer">
+    <title>Auftrag erstellen</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="config.js"></script>
+    <script defer src="app.js"></script>
+</head>
+<body>
+    <main>
+        <header>
+            <p class="eyebrow">AUFTRÄGE</p>
+            <h1>Dein Projekt beginnt hier.</h1>
+            <p>Erstelle einen Karten- oder Bauauftrag und schreibe direkt mit unserem Team – ganz ohne Discord.</p>
+        </header>
+        <div id="notice" role="status" aria-live="polite"></div>
+        <section id="create">
+            <h2>Neuen Auftrag erstellen</h2>
+            <form id="create-form">
+                <label>Auftragsart
+                    <select id="type"><option value="mapart">2D-Karte / Teppich</option><option value="bauauftrag">Bauauftrag</option></select>
+                </label>
+                <label>Dein Name <input id="name" maxlength="80" required autocomplete="nickname"></label>
+                <label>Was möchtest du bestellen? <textarea id="description" maxlength="1500" required rows="4"></textarea></label>
+                <div id="dimensions" class="grid">
+                    <label>Höhe in Karten <input id="height" type="number" min="1" max="64" value="1"></label>
+                    <label>Breite in Karten <input id="width" type="number" min="1" max="64" value="1"></label>
+                </div>
+                <p id="price" class="hint"></p>
+                <label>Einmaliger Rabattcode (optional) <input id="discount" maxlength="7" autocomplete="off"></label>
+                <p class="hint">Nur einmalig verwendbare Codes. Bei Bauaufträgen gilt der Rabatt auf den vereinbarten Preis.</p>
+                <button type="submit">Auftrag erstellen</button>
+            </form>
+        </section>
+        <section id="ticket" hidden>
+            <div class="ticket-heading"><h2 id="ticket-name"></h2><span id="ticket-status"></span></div>
+            <div class="link-note">
+                <strong>Speichere deinen persönlichen Ticket-Link!</strong>
+                <p>Nur mit diesem Link kannst du zurückkehren. Jeder mit dem Link kann den Chat lesen und schreiben. Teile ihn nicht öffentlich.</p>
+                <button id="copy" type="button" class="secondary">Link kopieren</button>
+            </div>
+            <button id="older" type="button" class="secondary" hidden>Ältere Nachrichten laden</button>
+            <div id="messages" class="messages" aria-live="polite"></div>
+            <form id="message-form">
+                <label>Nachricht <textarea id="content" maxlength="1800" rows="3"></textarea></label>
+                <label>Bild (PNG, JPG, GIF, WEBP oder BMP; höchstens 7 MB)
+                    <input id="image" type="file" accept=".png,.jpg,.jpeg,.gif,.webp,.bmp,image/png,image/jpeg,image/gif,image/webp,image/bmp">
+                </label>
+                <p id="image-hint" class="hint"></p>
+                <button type="submit">Nachricht senden</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>
